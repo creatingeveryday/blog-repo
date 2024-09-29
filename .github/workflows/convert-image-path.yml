@@ -41,6 +41,7 @@ jobs:
             else
                 echo "No changes detected in \"$file\""
             fi
+            echo "------------------------------------------------------------------------------------------"
           done
 
       # Commits changes if there are any
