@@ -52,11 +52,11 @@ jobs:
       # Commits changes if there are any
       - name: Commit changes
         run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
           git status
           if git commit -m "Update image paths to GitHub URLs"; then
               echo "Changes committed successfully."
-              git config --local user.email "action@github.com"
-              git config --local user.name "GitHub Action"
               git push
           else
               echo "No changes to commit."
