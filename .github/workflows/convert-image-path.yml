@@ -21,53 +21,42 @@ jobs:
       # Updates image paths in Markdown files
       - name: Update image paths in Markdown
         run: |
-          set -e  # Exit immediately if a command exits with a non-zero status
           
+          # Exit immediately if a command exits with a non-zero status
+          set -e  
+
           for file in */*/*.md; do
             echo "------------------------------------------------------------------------------------------"
-          
-            # Create the name for the changed file
-            temp_file="${file%.md}_image_path_changed.md"
-          
-            # Check if the corresponding changed file already exists
-            if [ -f "$temp_file" ]; then
-                echo "File \"$temp_file\" already exists. Skip!"
-                continue
-            fi
-          
-            # Check if the file contains image paths that need to be updated
-            echo "Checking file: \"$file\" for image paths matching: \!\[.*\]\.\/images\/"
-            if grep -q '\!\[.*\]\.\/images\/' "$file"; then
-          
-                # Create a backup of the original file
-                cp "$file" "$temp_file"
-          
-                # Update image paths
-                sed -i -E "s|(\!\[.*\]\()\./images/(.*\))|\1https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/$(dirname "$file")/images/\2|g" "$temp_file"
-          
-                echo "Processing \"$temp_file\""
-                echo "Directory: $(dirname \"$temp_file\")"
-                echo "Updated image paths in \"$temp_file\""
-          
-                # Add
-                git add "$temp_file"
-                echo "Added: \"$temp_file\""
-                
+
+            # 이미지 경로를 변경
+            # 변경 전:  ![1](./images/1.png)
+            # 변경 후:  ![1](https://raw.githubusercontent.com/username/${GITHUB_REPOSITORY}/main/$(dirname "$file")/images/1.png)
+            if sed -i.bak -E "s|(\!\[.*\]\()\./images/(.*\))|\1https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/$(dirname "$file")/images/\2|g" "$file"; then
+                echo "Processing \"$file\""
+                echo "Directory: $(dirname \"$file\")"
+                echo "Updated image paths in \"$file\""
             else
                 echo "No image paths found in \"$file\""
+                continue
+            fi
+
+            # Git Add
+            if ! git diff --quiet "$file"; then
+                git add "$file"
+                echo "Added: \"$file\""
+            else
+                echo "No changes detected in \"$file\""
             fi
           done
-
-
 
       # Commits changes if there are any
       - name: Commit changes
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
           git status
           if git commit -m "Update image paths to GitHub URLs"; then
               echo "Changes committed successfully."
+              git config --local user.email "action@github.com"
+              git config --local user.name "GitHub Action"
               git push
           else
               echo "No changes to commit."
