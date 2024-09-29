@@ -10,31 +10,36 @@ on:
   workflow_dispatch:
 
 jobs:
-   # This workflow contains a single job called "convert-image-path"
+  # This workflow contains a single job called "convert-image-path"
   convert-image-path:
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      # Checks out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
       # Updates image paths in Markdown files
       - name: Update image paths in Markdown
         run: |
+          set -e  # Exit immediately if a command exits with a non-zero status
+
           for file in */*/*.md; do
-            echo "Processing \"$file\""
-            echo "$(dirname \"$file\")"
+
+            # Update image paths
+            if sed -i.bak -E "s|(\!\[.*\]\()\./images/(.*\))|\1https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/$(dirname "$file")/images/\2|g" "$file"; then
+                echo "Processing \"$file\""
+                echo "Directory: $(dirname \"$file\")"
+                echo "Updated image paths in \"$file\""
+            else
+                echo "No image paths found in \"$file\""
+            fi
 
             # 이미지 경로를 변경
-            # 변경 전:  ![1](./images/1.png)
-            # 변경 후:  ![1](https://raw.githubusercontent.com/username/${GITHUB_REPOSITORY}/main/$(dirname "$file")/images/1.png)
-            sed -i.bak -E "s|(\!\[.*\]\()\./images/(.*\))|\1https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/$(dirname "$file")/images/\2|g" "$file"
-
-            # 변경된 파일만 git에 add
             if ! git diff --quiet "$file"; then
                 git add "$file"
-                echo "Added: \"$file\" "
+                echo "Added: \"$file\""
+            else
+                echo "No changes detected in \"$file\""
             fi
           done
 
@@ -44,5 +49,9 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git status
-          git commit -m "Update image paths to GitHub URLs" || echo "No changes to commit"
-          git push
+          if git commit -m "Update image paths to GitHub URLs"; then
+              echo "Changes committed successfully."
+              git push
+          else
+              echo "No changes to commit."
+          fi
