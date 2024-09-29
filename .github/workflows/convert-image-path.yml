@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checks out your repository under $GITHUB_WORKSPACE, so your job can access it
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
       # Updates image paths in Markdown files
@@ -24,28 +24,23 @@ jobs:
           
           # Exit immediately if a command exits with a non-zero status
           set -e  
-
+          
           for file in */*/*.md; do
             echo "------------------------------------------------------------------------------------------"
+            echo "Processing \"$file\""
+            echo "Directory: $(dirname \"$file\")"
 
             # 이미지 경로를 변경
             # 변경 전:  ![1](./images/1.png)
             # 변경 후:  ![1](https://raw.githubusercontent.com/username/${GITHUB_REPOSITORY}/main/$(dirname "$file")/images/1.png)
-            if sed -i.bak -E "s|(\!\[.*\]\()\./images/(.*\))|\1https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/$(dirname "$file")/images/\2|g" "$file"; then
-                echo "Processing \"$file\""
-                echo "Directory: $(dirname \"$file\")"
-                echo "Updated image paths in \"$file\""
-            else
-                echo "No image paths found in \"$file\""
-                continue
-            fi
+            sed -i.bak -E "s|(\!\[.*\]\()\./images/(.*\))|\1https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/$(dirname "$file")/images/\2|g" "$file"
 
             # Git Add
             if ! git diff --quiet "$file"; then
                 git add "$file"
                 echo "Added: \"$file\""
             else
-                echo "No changes detected in \"$file\""
+                  echo "No changes detected in \"$file\""
             fi
           done
 
@@ -55,9 +50,5 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git status
-          if git commit -m "Update image paths to GitHub URLs"; then
-              echo "Changes committed successfully."
-              git push
-          else
-              echo "No changes to commit."
-          fi
+          git commit -m "Update image paths to GitHub URLs" || echo "No changes to commit"
+          git push
