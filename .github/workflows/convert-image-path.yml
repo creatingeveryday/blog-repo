@@ -1,0 +1,38 @@
+# This workflow updates image paths in Markdown files to GitHub URLs
+
+name: Update Image Paths
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+   # This workflow contains a single job called "convert-image-path"
+  convert-image-path:
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+
+      # Updates image paths in Markdown files
+      - name: Update image paths in Markdown
+        run: |
+          for file in *.md; do
+            echo "Processing $file"
+            # Convert local image paths to GitHub URLs
+            sed -i.bak -E 's|(\!\[.*\]\()\./images/(.*)\)|\1https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/images/\2)|g' "$file"
+          done
+
+      # Commits changes if there are any
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add *.md
+          git commit -m "Update image paths to GitHub URLs" || echo "No changes to commit"
+          git push
