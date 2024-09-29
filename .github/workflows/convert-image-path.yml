@@ -25,22 +25,26 @@ jobs:
 
           for file in */*/*.md; do
             echo "------------------------------------------------------------------------------------------"
-
+          
+            # Create a backup of the original file
+            image_path_changed_file="${file%.md}_image_path_changed.md"
+            cp "$file" "$image_path_changed_file"
+          
             # Update image paths
-            if sed -i.bak -E "s|(\!\[.*\]\()\./images/(.*\))|\1https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/$(dirname "$file")/images/\2|g" "$file"; then
-                echo "Processing \"$file\""
-                echo "Directory: $(dirname \"$file\")"
-                echo "Updated image paths in \"$file\""
+            if sed -i.bak -E "s|(\!\[.*\]\()\./images/(.*\))|\1https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/$(dirname "$file")/images/\2|g" "$image_path_changed_file"; then
+                echo "Processing \"$image_path_changed_file\""
+                echo "Directory: $(dirname \"$image_path_changed_file\")"
+                echo "Updated image paths in \"$image_path_changed_file\""
             else
-                echo "No image paths found in \"$file\""
+                echo "No image paths found in \"$image_path_changed_file\""
             fi
 
             # 이미지 경로를 변경
-            if ! git diff --quiet "$file"; then
-                git add "$file"
-                echo "Added: \"$file\""
+            if ! git diff --quiet "$image_path_changed_file"; then
+                git add "$image_path_changed_file"
+                echo "Added: \"$image_path_changed_file\""
             else
-                echo "No changes detected in \"$file\""
+                echo "No changes detected in \"$image_path_changed_file\""
             fi
           done
 
