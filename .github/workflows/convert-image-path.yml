@@ -39,7 +39,7 @@ jobs:
           
             # Check if the file contains image paths that need to be updated
             echo "Checking file: \"$file\" for image paths matching: '$image_path_pattern'"
-            if grep -q '$image_path_pattern' "$file"; then
+            if grep -q "$image_path_pattern" "$file"; then
                 # Create a backup of the original file
                 cp "$file" "$temp_file"
           
