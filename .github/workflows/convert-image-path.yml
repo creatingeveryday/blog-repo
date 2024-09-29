@@ -25,6 +25,11 @@ jobs:
           for file in */*/*.md; do
             echo "Processing \"$file\""
             sed -i.bak -E 's|(\!\[.*\]\()\./images/(.*)\)|\1https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/$(dirname "$file")/images/\2)|g' "$file"
+
+            # 변경된 파일을 git에 추가
+            if ! git diff --quiet "$file"; then
+                git add "$file"
+            fi
           done
 
       # Commits changes if there are any
@@ -33,6 +38,5 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git status
-          git add *.md
           git commit -m "Update image paths to GitHub URLs" || echo "No changes to commit"
           git push
