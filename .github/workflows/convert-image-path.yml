@@ -22,31 +22,44 @@ jobs:
       - name: Update image paths in Markdown
         run: |
           set -e  # Exit immediately if a command exits with a non-zero status
+          
+          image_path_pattern='\!\[.*\]\.\/images\/'
 
           for file in */*/*.md; do
             echo "------------------------------------------------------------------------------------------"
           
-            # Create a backup of the original file
-            image_path_changed_file="${file%.md}_image_path_changed.md"
-            cp "$file" "$image_path_changed_file"
+            # Create the name for the changed file
+            temp_file="${file%.md}_image_path_changed.md"
           
-            # Update image paths
-            if sed -i.bak -E "s|(\!\[.*\]\()\./images/(.*\))|\1https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/$(dirname "$file")/images/\2|g" "$image_path_changed_file"; then
-                echo "Processing \"$image_path_changed_file\""
-                echo "Directory: $(dirname \"$image_path_changed_file\")"
-                echo "Updated image paths in \"$image_path_changed_file\""
-            else
-                echo "No image paths found in \"$image_path_changed_file\""
+            # Check if the corresponding changed file already exists
+            if [ -f "$temp_file" ]; then
+                echo "File \"$temp_file\" already exists. Skip!"
+                continue
             fi
-
-            # 이미지 경로를 변경
-            if ! git diff --quiet "$image_path_changed_file"; then
-                git add "$image_path_changed_file"
-                echo "Added: \"$image_path_changed_file\""
+          
+            # Check if the file contains image paths that need to be updated
+            echo "Checking file: \"$file\" for image paths matching: '$image_path_pattern'"
+            if grep -q '$image_path_pattern' "$file"; then
+                # Create a backup of the original file
+                cp "$file" "$temp_file"
+          
+                # Update image paths
+                sed -i -E "s|(\!\[.*\]\()\./images/(.*\))|\1https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/$(dirname "$file")/images/\2|g" "$temp_file"
+          
+                echo "Processing \"$temp_file\""
+                echo "Directory: $(dirname \"$temp_file\")"
+                echo "Updated image paths in \"$temp_file\""
+          
+                # Add
+                git add "$temp_file"
+                echo "Added: \"$temp_file\""
+                
             else
-                echo "No changes detected in \"$image_path_changed_file\""
+                echo "No image paths found in \"$file\""
             fi
           done
+
+
 
       # Commits changes if there are any
       - name: Commit changes
