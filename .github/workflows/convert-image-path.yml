@@ -22,10 +22,9 @@ jobs:
       # Updates image paths in Markdown files
       - name: Update image paths in Markdown
         run: |
-          for file in **/*.md; do
+          for file in */*/*.md; do
             echo "Processing \"$file\""
-            # Convert local image paths to GitHub URLs
-            sed -i.bak -E 's|(\!\[.*\]\()\./images/(.*)\)|\1https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/images/\2)|g' "$file"
+            sed -i.bak -E 's|(\!\[.*\]\()\./images/(.*)\)|\1https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/$(dirname "$file")/images/\2)|g' "$file"
           done
 
       # Commits changes if there are any
