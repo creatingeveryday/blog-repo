@@ -4,7 +4,10 @@
 
 1. Git 다운로드
 
-![1](https://raw.githubusercontent.com/creatingeveryday/blog-repo/main/setting/Git_다운로드와_설치/images/1.png
+
+![1](./images/1.png)
+
+
 
 2. Git 설치
 
