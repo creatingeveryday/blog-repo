@@ -4,7 +4,7 @@
 
 1. Git 다운로드
 
-![1](https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/$(dirname "$file")/images/1.png)
+![1](./images/1.png)
 
 2. Git 설치
 

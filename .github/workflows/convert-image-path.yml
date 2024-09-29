@@ -24,7 +24,8 @@ jobs:
         run: |
           for file in */*/*.md; do
             echo "Processing \"$file\""
-            sed -i.bak -E 's|(\!\[.*\]\()\./images/(.*)\)|\1https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/$(dirname "$file")/images/\2)|g' "$file"
+            
+            sed -i.bak -E "s|(\!\[.*\]\()\./images/(.*)\)|\1https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/$(dirname "$file")/images/\2|g" "$file"
 
             # 변경된 파일을 git에 추가
             if ! git diff --quiet "$file"; then
