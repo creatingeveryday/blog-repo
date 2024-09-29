@@ -27,8 +27,9 @@ jobs:
             echo "$(dirname \"$file\")" "
 
             # 이미지 경로를 변경
-            # 예:  ![1](./images/1.png) ===> ![1](https://raw.githubusercontent.com/username/blog-repo/main/$(dirname "$file")/images/1.png)
-            sed -i.bak -E "s|(\!\[.*\]\()\./images/(.* )\)|\1https://raw.githubusercontent.com/username/blog-repo/main/$(dirname "$file")/images/\2\)|g" "$file"
+            # 변경 전:  ![1](./images/1.png)
+            # 변경 후:  ![1](https://raw.githubusercontent.com/username/${GITHUB_REPOSITORY}/main/$(dirname "$file")/images/1.png)
+            sed -i.bak -E "s|(\!\[.*\]\()\./images/(.*)\)|\1https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/$(dirname "$file")/images/\2\)|g" "$file"
 
             # 변경된 파일만 git에 add
             if ! git diff --quiet "$file"; then
