@@ -23,8 +23,6 @@ jobs:
         run: |
           set -e  # Exit immediately if a command exits with a non-zero status
           
-          image_path_pattern='\!\[.*\]\.\/images\/'
-
           for file in */*/*.md; do
             echo "------------------------------------------------------------------------------------------"
           
@@ -38,8 +36,9 @@ jobs:
             fi
           
             # Check if the file contains image paths that need to be updated
-            echo "Checking file: \"$file\" for image paths matching: '$image_path_pattern'"
-            if grep -q "$image_path_pattern" "$file"; then
+            echo "Checking file: \"$file\" for image paths matching: \!\[.*\]\.\/images\/"
+            if grep -q '\!\[.*\]\.\/images\/' "$file"; then
+          
                 # Create a backup of the original file
                 cp "$file" "$temp_file"
           
