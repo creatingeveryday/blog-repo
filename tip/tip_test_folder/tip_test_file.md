@@ -1,2 +1,0 @@
-![1](https://raw.githubusercontent.com/creatingeveryday/blog-repo/main/tip/tip_test_folder/images/1.png)
-![2](https://raw.githubusercontent.com/creatingeveryday/blog-repo/main/tip/tip_test_folder/images/2.png)
