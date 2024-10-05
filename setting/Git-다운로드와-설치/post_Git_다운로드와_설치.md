@@ -28,6 +28,8 @@ Git 공식 홈페이지: [https://git-scm.com/](https://git-scm.com/)
 <br/>
 <br/>
 <br/>
+<br/>
+<br/>
 
 ![2](./images/2.png)
 
@@ -35,6 +37,8 @@ Git 공식 홈페이지: [https://git-scm.com/](https://git-scm.com/)
 > 
 > 저는 Window 를 선택했습니다.
 
+<br/>
+<br/>
 <br/>
 <br/>
 <br/>
@@ -50,6 +54,8 @@ Git 공식 홈페이지: [https://git-scm.com/](https://git-scm.com/)
 <br/>
 <br/>
 <br/>
+<br/>
+<br/>
 
 ## Git 설치 진행
 
@@ -62,11 +68,15 @@ Git 공식 홈페이지: [https://git-scm.com/](https://git-scm.com/)
 <br/>
 <br/>
 <br/>
+<br/>
+<br/>
 
 ![5](./images/5.png)
 
 > Git 이 설치되는 경로를 설정합니다.
 
+<br/>
+<br/>
 <br/>
 <br/>
 <br/>
@@ -80,6 +90,8 @@ Git 공식 홈페이지: [https://git-scm.com/](https://git-scm.com/)
 <br/>
 <br/>
 <br/>
+<br/>
+<br/>
 
 ![7](./images/7.png)
 
@@ -88,11 +100,15 @@ Git 공식 홈페이지: [https://git-scm.com/](https://git-scm.com/)
 <br/>
 <br/>
 <br/>
+<br/>
+<br/>
 
 ![8](./images/8.png)
 
 > Git 을 사용할 에디터를 설정합니다. 저는 Vim 으로 설치하겠습니다.
 
+<br/>
+<br/>
 <br/>
 <br/>
 <br/>
@@ -108,6 +124,8 @@ Git 공식 홈페이지: [https://git-scm.com/](https://git-scm.com/)
 <br/>
 <br/>
 <br/>
+<br/>
+<br/>
 
 ![10](./images/10.png)
 
@@ -115,6 +133,8 @@ Git 공식 홈페이지: [https://git-scm.com/](https://git-scm.com/)
 >
 > 다른 소프트웨어에서도 git 을 사용할 수 있게 Recommended 설정으로 설치하겠습니다.
 
+<br/>
+<br/>
 <br/>
 <br/>
 <br/>
@@ -126,11 +146,15 @@ Git 공식 홈페이지: [https://git-scm.com/](https://git-scm.com/)
 <br/>
 <br/>
 <br/>
+<br/>
+<br/>
 
 ![12](./images/12.png)
 
 > OpenSSL 라이브러리를 사용하겠습니다.
 
+<br/>
+<br/>
 <br/>
 <br/>
 <br/>
@@ -144,6 +168,8 @@ Git 공식 홈페이지: [https://git-scm.com/](https://git-scm.com/)
 <br/>
 <br/>
 <br/>
+<br/>
+<br/>
 
 ![14](./images/14.png)
 
@@ -152,16 +178,20 @@ Git 공식 홈페이지: [https://git-scm.com/](https://git-scm.com/)
 <br/>
 <br/>
 <br/>
+<br/>
+<br/>
 
 ![15](./images/15.png)
 
 > Git Pull 기본 동작은 fast-forward 가 가능한 경우 fast-forward 병합을 먼저 수행하고 merge 를 수행하게 설정하겠습니다.
->
+
 > Fast-forward 란?
 > - 두 브랜치를 병합할 때, 한 브랜치의 변경 사항이 다른 브랜치의 끝에서 이어질 수 있을 때 병합되는 방식입니다.
 > - 새로운 커밋을 만들지 않고 단순히 브랜치 포인터를 앞으로 이동하여 병합합니다.
 > - 추가적인 병합 커밋이 생성되지 않습니다.
 
+<br/>
+<br/>
 <br/>
 <br/>
 <br/>
@@ -177,6 +207,8 @@ Git 공식 홈페이지: [https://git-scm.com/](https://git-scm.com/)
 <br/>
 <br/>
 <br/>
+<br/>
+<br/>
 
 ![17](./images/17.png)
 
@@ -185,11 +217,15 @@ Git 공식 홈페이지: [https://git-scm.com/](https://git-scm.com/)
 <br/>
 <br/>
 <br/>
+<br/>
+<br/>
 
 ![18](./images/18.png)
 
 > 실험적인 기능은 선택하지 않고 설치를 진행하겠습니다.
 
+<br/>
+<br/>
 <br/>
 <br/>
 <br/>
@@ -206,6 +242,8 @@ git --version
 git version 2.46.2.windows.1
 ```
 
+<br/>
+<br/>
 <br/>
 <br/>
 <br/>
