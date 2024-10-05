@@ -14,7 +14,7 @@
 
 <br/>
 
-[![git-logo.png](images/git-logo.png)](https://git-scm.com/)
+[![git-logo.png](./images/git-logo.png)](https://git-scm.com/)
 
 Git 공식 홈페이지: [https://git-scm.com/](https://git-scm.com/)
 
