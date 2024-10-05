@@ -47,11 +47,18 @@ jobs:
             # Check if the new file contains image paths to update
             if grep -q "\!\[.*\](\./images/" "$new_file"; then
               # 이미지 경로를 변경
+          
+              # 1. 이미지 - ![...](./images/...)
               # 변경 전:  ![1](./images/1.png)
               # 변경 후:  ![1](https://raw.githubusercontent.com/username/${GITHUB_REPOSITORY}/main/$(dirname "$file")/images/1.png)
               sed -i.bak -E "s|(\!\[.*\]\()\./images/(.*\))|\1https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/$(dirname "$new_file")/images/\2|g" "$new_file"
               echo "Image paths updated in \"$new_file\""
-              
+          
+              # 2. 이미지 + 링크 - [![...](./images/...)](hyper-link)
+              # 변경 전:  [![1](./images/1.png)](hyper-link)
+              # 변경 후:  [![1](https://raw.githubusercontent.com/username/${GITHUB_REPOSITORY}/main/$(dirname "$file")/images/1.png)](hyper-link)
+              sed -i.bak -E "s|(\[\!\[.*\]\()\./images/(.*\))|\1https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/$(dirname \"$new_file\")/images/\2|g" "$new_file"
+          
               # Git Add
               git add "$new_file"
               echo "Added: \"$new_file\""
