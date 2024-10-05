@@ -25,23 +25,44 @@ jobs:
           # Exit immediately if a command exits with a non-zero status
           set -e  
           
-          for file in */*/*.md; do
+          # "post_*.md"
+          for file in */*/post_*.md; do
+          
+            # Skip the file if it ends with "_public.md"
+            if [[ "$file" == *_public.md ]]; then
+              echo "Skipping \"$file\" because it already contains '_public'"
+              continue
+            fi
+          
             echo "------------------------------------------------------------------------------------------"
             echo "Processing \"$file\""
             echo "Directory: $(dirname \"$file\")"
-
-            # 이미지 경로를 변경
-            # 변경 전:  ![1](./images/1.png)
-            # 변경 후:  ![1](https://raw.githubusercontent.com/username/${GITHUB_REPOSITORY}/main/$(dirname "$file")/images/1.png)
-            sed -i.bak -E "s|(\!\[.*\]\()\./images/(.*\))|\1https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/$(dirname "$file")/images/\2|g" "$file"
+          
+            # Define the new file name
+            new_file="${file%.md}_public.md"
+            
+            # Copy the original file to the new file
+            cp "$file" "$new_file"
+            
+            # Check if the new file contains image paths to update
+            if grep -q "\!\[.*\](\./images/" "$new_file"; then
+              # 이미지 경로를 변경
+              # 변경 전:  ![1](./images/1.png)
+              # 변경 후:  ![1](https://raw.githubusercontent.com/username/${GITHUB_REPOSITORY}/main/$(dirname "$file")/images/1.png)
+              sed -i.bak -E "s|(\!\[.*\]\()\./images/(.*\))|\1https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/$(dirname "$new_file")/images/\2|g" "$new_file"
+              echo "Image paths updated in \"$new_file\""
+            else
+              echo "No image paths to update in \"$new_file\""
+            fi
 
             # Git Add
-            if ! git diff --quiet "$file"; then
-                git add "$file"
-                echo "Added: \"$file\""
+            if ! git diff --quiet "$new_file"; then
+              git add "$new_file"
+              echo "Added: \"$new_file\""
             else
-                  echo "No changes detected in \"$file\""
+              echo "Skipped: \"$new_file\""
             fi
+
           done
 
       # Commits changes if there are any
