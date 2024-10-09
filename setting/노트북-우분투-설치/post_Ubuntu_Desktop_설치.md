@@ -24,7 +24,7 @@
 
 ## 1. Ubuntu 24.04 설치 이미지 다운로드
 
-![설치이미지-다운로드-1](./images/설치이미지-다운로드-1.webp)
+![설치이미지-다운로드-1](./images/설치이미지-다운로드-1_resized.webp)
 
 > Ubuntu Desktop 설치 이미지를 다운로드 받습니다.
 >
@@ -40,7 +40,7 @@
 
 ## 2. 부팅 USB 만들기
 
-![myUSB](./images/1.webp)
+![myUSB](./images/1_resized.webp)
 
 > 다운로드 받은 우분투 이미지를 이용하여 부팅 USB를 만들어봅시다.
 >
@@ -60,9 +60,9 @@
 
 ## 3. Ubuntu Desktop 24.04 설치
 
-![restart](./images/2.webp)
+![restart](./images/2_resized.webp)
 
-![bootMenu](./images/3.webp)
+![bootMenu](./images/3_resized.webp)
 
 > 우분투를 설치할 노트북에 우분투 부팅 USB를 연결합니다.
 >
@@ -78,7 +78,7 @@
 <br/>
 <br/>
 
-![ubuntu](./images/4.webp)
+![ubuntu](./images/4_resized.webp)
 
 > 잠시 기다리면 Ubuntu 부팅이 시작됩니다.
 >
@@ -90,7 +90,7 @@
 <br/>
 <br/>
 
-![selectLanguage](./images/5.webp)
+![selectLanguage](./images/5_resized.webp)
 
 > 언어를 선택합니다. 저는 English 를 선택했습니다.
 
@@ -100,7 +100,7 @@
 <br/>
 <br/>
 
-![step-accessibility](./images/6.webp)
+![step-accessibility](./images/6_resized.webp)
 
 > 접근성 설정 메뉴입니다.
 >
@@ -112,7 +112,7 @@
 <br/>
 <br/>
 
-![step-keyboard](./images/7.webp)
+![step-keyboard](./images/7_resized.webp)
 
 > 키보드 설정입니다. 화면에서 간단하게 타이핑하면서 테스트도 가능합니다.
 
@@ -122,9 +122,11 @@
 <br/>
 <br/>
 
-![step-internet-1](./images/8.webp)
-![step-internet-2](./images/9.webp)
-![step-internet-3](./images/10.webp)
+![step-internet-1](./images/8_resized.webp)
+
+![step-internet-2](./images/9_resized.webp)
+
+![step-internet-3](./images/10_resized.webp)
 
 > 인터넷 연결 설정 단계입니다.
 >
@@ -136,7 +138,7 @@
 <br/>
 <br/>
 
-![step-install](./images/11.webp)
+![step-install](./images/11_resized.webp)
 
 > 저는 기존 윈도우 운영체제를 대체하여 우분투를 설치하겠습니다.
 >
@@ -148,7 +150,7 @@
 <br/>
 <br/>
 
-![step-install-method](./images/12.webp)
+![step-install-method](./images/12_resized.webp)
 
 > Interactive Installation 을 선택합니다.
 
@@ -158,7 +160,7 @@
 <br/>
 <br/>
 
-![step-install-method-2](./images/13.webp)
+![step-install-method-2](./images/13_resized.webp)
 
 > 기본으로 Default Selection 을 선택합니다.
 
@@ -168,7 +170,7 @@
 <br/>
 <br/>
 
-![step-install-additional](./images/14.webp)
+![step-install-additional](./images/14_resized.webp)
 
 > 저는 추가 구성 요소를 같이 설치하겠습니다.
 
@@ -178,7 +180,7 @@
 <br/>
 <br/>
 
-![step-install-manual](./images/15.webp)
+![step-install-manual](./images/15_resized.webp)
 
 > 저는 기존에 윈도우 노트북이었기 때문에 기존 디스크의 파티션도 정리해야합니다.
 >
@@ -190,11 +192,15 @@
 <br/>
 <br/>
 
-![step-install-manual-partitioning-1](./images/17.webp)
-![step-install-manual-partitioning-2](./images/18.webp)
-![step-install-manual-partitioning-3](./images/19.webp)
-![step-install-manual-partitioning-4](./images/20.webp)
-![step-install-manual-partitioning-5](./images/23.webp)
+![step-install-manual-partitioning-1](./images/17_resized.webp)
+
+![step-install-manual-partitioning-2](./images/18_resized.webp)
+
+![step-install-manual-partitioning-3](./images/19_resized.webp)
+
+![step-install-manual-partitioning-4](./images/20_resized.webp)
+
+![step-install-manual-partitioning-5](./images/23_resized.webp)
 
 > 디스크의 파티션을 정리하고 우분투 운영체제를 어떤 디스크에 설치할지 결정하는 단계입니다.
 >
@@ -215,7 +221,7 @@
 <br/>
 <br/>
 
-![step-create-user](./images/24.webp)
+![step-create-user](./images/24_resized.webp)
 
 > 사용자 계정을 비밀번호와 함께 만들어서 설정합니다.
 
@@ -225,7 +231,7 @@
 <br/>
 <br/>
 
-![step-select-timezone](./images/26.webp)
+![step-select-timezone](./images/26_resized.webp)
 
 > Timezone을 설정하는 단계입니다.
 
@@ -235,7 +241,7 @@
 <br/>
 <br/>
 
-![step-review](./images/27.webp)
+![step-review](./images/27_resized.webp)
 
 > 마지막으로 설치 옵션을 확인합니다.
 
@@ -245,9 +251,9 @@
 <br/>
 <br/>
 
-![step-installing](./images/28.webp)
+![step-installing](./images/28_resized.webp)
 
-![step-install-finish](./images/29.webp)
+![step-install-finish](./images/29_resized.webp)
 
 > 설치를 진행하고 설치가 완료되면 다시 시작합니다.
 
@@ -257,7 +263,7 @@
 <br/>
 <br/>
 
-![step-complete](./images/30.webp)
+![step-complete](./images/30_resized.webp)
 
 > 다시 시작 진행 중 연결된 부팅 USB 를 분리해달라고합니다.
 >
@@ -267,9 +273,9 @@
 >
 > 이렇게 설치를 모두 완료했습니다.
 >
-> 설치 과정은 윈도우와 비슷했던 것 같고, UI도 보기 좋은데요! 
+> 설치 과정은 윈도우와 비슷했던 것 같고, UI도 보기 좋은데요!
 >
-> 저는 우분투를 사용하면서 공부도 하고 
+> 저는 우분투를 사용하면서 공부도 하고
 >
 > 외출할때는 우분투가 설치된 가벼운 노트북을 들고 다닐 것 같네요
 >
