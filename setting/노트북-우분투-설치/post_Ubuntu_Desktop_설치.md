@@ -24,7 +24,7 @@
 
 ## 1. Ubuntu 24.04 설치 이미지 다운로드
 
-![설치이미지-다운로드-1.png](./images/설치이미지-다운로드-1.png)
+![설치이미지-다운로드-1](./images/설치이미지-다운로드-1.webp)
 
 > Ubuntu Desktop 설치 이미지를 다운로드 받습니다.
 >
@@ -40,7 +40,7 @@
 
 ## 2. 부팅 USB 만들기
 
-![myUSB](./images/1.jpg)
+![myUSB](./images/1.webp)
 
 > 다운로드 받은 우분투 이미지를 이용하여 부팅 USB를 만들어봅시다.
 >
@@ -60,9 +60,9 @@
 
 ## 3. Ubuntu Desktop 24.04 설치
 
-![restart](./images/2.jpg)
+![restart](./images/2.webp)
 
-![bootMenu](./images/3.jpg)
+![bootMenu](./images/3.webp)
 
 > 우분투를 설치할 노트북에 우분투 부팅 USB를 연결합니다.
 >
@@ -78,7 +78,7 @@
 <br/>
 <br/>
 
-![ubuntu](./images/4.jpg)
+![ubuntu](./images/4.webp)
 
 > 잠시 기다리면 Ubuntu 부팅이 시작됩니다.
 >
@@ -90,7 +90,7 @@
 <br/>
 <br/>
 
-![selectLanguage](./images/5.jpg)
+![selectLanguage](./images/5.webp)
 
 > 언어를 선택합니다. 저는 English 를 선택했습니다.
 
@@ -100,7 +100,7 @@
 <br/>
 <br/>
 
-![step-accessibility](./images/6.jpg)
+![step-accessibility](./images/6.webp)
 
 > 접근성 설정 메뉴입니다.
 >
@@ -112,7 +112,7 @@
 <br/>
 <br/>
 
-![step-keyboard](./images/7.jpg)
+![step-keyboard](./images/7.webp)
 
 > 키보드 설정입니다. 화면에서 간단하게 타이핑하면서 테스트도 가능합니다.
 
@@ -122,9 +122,9 @@
 <br/>
 <br/>
 
-![step-internet-1](./images/8.jpg)
-![step-internet-2](./images/9.jpg)
-![step-internet-3](./images/10.jpg)
+![step-internet-1](./images/8.webp)
+![step-internet-2](./images/9.webp)
+![step-internet-3](./images/10.webp)
 
 > 인터넷 연결 설정 단계입니다.
 >
@@ -136,7 +136,7 @@
 <br/>
 <br/>
 
-![step-install](./images/11.jpg)
+![step-install](./images/11.webp)
 
 > 저는 기존 윈도우 운영체제를 대체하여 우분투를 설치하겠습니다.
 >
@@ -148,7 +148,7 @@
 <br/>
 <br/>
 
-![step-install-method](./images/12.jpg)
+![step-install-method](./images/12.webp)
 
 > Interactive Installation 을 선택합니다.
 
@@ -158,7 +158,7 @@
 <br/>
 <br/>
 
-![step-install-method-2](./images/13.jpg)
+![step-install-method-2](./images/13.webp)
 
 > 기본으로 Default Selection 을 선택합니다.
 
@@ -168,7 +168,7 @@
 <br/>
 <br/>
 
-![step-install-additional](./images/14.jpg)
+![step-install-additional](./images/14.webp)
 
 > 저는 추가 구성 요소를 같이 설치하겠습니다.
 
@@ -178,7 +178,7 @@
 <br/>
 <br/>
 
-![step-install-manual](./images/15.jpg)
+![step-install-manual](./images/15.webp)
 
 > 저는 기존에 윈도우 노트북이었기 때문에 기존 디스크의 파티션도 정리해야합니다.
 >
@@ -190,11 +190,11 @@
 <br/>
 <br/>
 
-![step-install-manual-partitioning-1](./images/17.jpg)
-![step-install-manual-partitioning-2](./images/18.jpg)
-![step-install-manual-partitioning-3](./images/19.jpg)
-![step-install-manual-partitioning-4](./images/20.jpg)
-![step-install-manual-partitioning-5](./images/23.jpg)
+![step-install-manual-partitioning-1](./images/17.webp)
+![step-install-manual-partitioning-2](./images/18.webp)
+![step-install-manual-partitioning-3](./images/19.webp)
+![step-install-manual-partitioning-4](./images/20.webp)
+![step-install-manual-partitioning-5](./images/23.webp)
 
 > 디스크의 파티션을 정리하고 우분투 운영체제를 어떤 디스크에 설치할지 결정하는 단계입니다.
 >
@@ -215,7 +215,7 @@
 <br/>
 <br/>
 
-![step-create-user](./images/24.jpg)
+![step-create-user](./images/24.webp)
 
 > 사용자 계정을 비밀번호와 함께 만들어서 설정합니다.
 
@@ -225,7 +225,7 @@
 <br/>
 <br/>
 
-![step-select-timezone](./images/26.jpg)
+![step-select-timezone](./images/26.webp)
 
 > Timezone을 설정하는 단계입니다.
 
@@ -235,7 +235,7 @@
 <br/>
 <br/>
 
-![step-review](./images/27.jpg)
+![step-review](./images/27.webp)
 
 > 마지막으로 설치 옵션을 확인합니다.
 
@@ -245,9 +245,9 @@
 <br/>
 <br/>
 
-![step-installing](./images/28.jpg)
+![step-installing](./images/28.webp)
 
-![step-install-finish](./images/29.jpg)
+![step-install-finish](./images/29.webp)
 
 > 설치를 진행하고 설치가 완료되면 다시 시작합니다.
 
@@ -257,7 +257,7 @@
 <br/>
 <br/>
 
-![step-complete](./images/30.jpg)
+![step-complete](./images/30.webp)
 
 > 다시 시작 진행 중 연결된 부팅 USB 를 분리해달라고합니다.
 >
